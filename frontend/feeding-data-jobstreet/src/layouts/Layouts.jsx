@@ -147,7 +147,6 @@ const Layouts = () => {
             })
             .catch((error) => {
                handleAlert('Failed to delete job', 'error')
-               console.log(error);
             
          });
    }

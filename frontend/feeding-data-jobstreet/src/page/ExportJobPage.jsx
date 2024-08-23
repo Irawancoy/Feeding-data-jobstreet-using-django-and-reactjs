@@ -7,7 +7,6 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const ExportJobPage = ({ listKeyword, handleCloseExport,handleAlert,handleRefreshData }) => {
   const [selectedKeyword, setSelectedKeyword] = useState("");
-  console.log(selectedKeyword);
   const onSelectChange = (keyword) => {
     setSelectedKeyword(keyword.target.value);
   };
@@ -16,7 +15,6 @@ const ExportJobPage = ({ listKeyword, handleCloseExport,handleAlert,handleRefres
     e.preventDefault();
     try {
       const response = await exportJobs(selectedKeyword); 
-      console.log(response);
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

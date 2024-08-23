@@ -9,7 +9,6 @@ import LinearProgress from "@mui/material/LinearProgress";
 const ScrapingJobPage = ({ listKeyword,handleCloseScraper,handleAlert,handleRefreshData }) => {
 
    const [selectedKeyword, setSelectedKeyword] = useState('');
-   console.log(listKeyword);
    const onSelectChange = (keyword) => {
       setSelectedKeyword(keyword.target.value);
    };

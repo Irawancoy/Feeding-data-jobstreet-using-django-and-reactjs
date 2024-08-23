@@ -4,7 +4,6 @@ import { Typography, Box, TextField } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 const DetailJobPage = ({ id, handleCloseDetail }) => {
-   console.log("Detail Job Page", id);
    const [jobDetail, setJobDetail] = useState({
       title: "",
       company_name: "",
@@ -18,14 +17,12 @@ const DetailJobPage = ({ id, handleCloseDetail }) => {
    useEffect(() => {
       getJobDetail(id)
          .then((response) => {
-            console.log(response);
             setJobDetail(response);
          })
          .catch((error) => {
             console.log(error);
          });
    }, [id]);
-   console.log(jobDetail);
 
    const handleClose = () => {
       handleCloseDetail();

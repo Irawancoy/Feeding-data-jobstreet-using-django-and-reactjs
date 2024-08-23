@@ -3,7 +3,6 @@ import Stack from '@mui/material/Stack';
 import { useEffect, useState } from 'react';
 
 const AlertComponents = ({ message, status }) => {
-   console.log(message, status);
    return (
       <Stack sx={{ width: '100%' }} spacing={2}>
          {status === 'success' ? (

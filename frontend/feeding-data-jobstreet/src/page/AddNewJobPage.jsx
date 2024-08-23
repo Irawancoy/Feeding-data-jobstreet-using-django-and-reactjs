@@ -31,7 +31,6 @@ const AddNewJobPage = ({listKeyword,handleCloseAddNew,handleRefreshData,handleAl
 
   
    const handleSubmit = async (e) => {
-      console.log(formData);
       e.preventDefault();
       try {
         await addNewJob(formData);

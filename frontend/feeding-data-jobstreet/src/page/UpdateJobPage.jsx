@@ -6,8 +6,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 const UpdateJobPage = ({ id,listKeyword ,handleCloseUpdate,handleAlert,handleRefreshData }) => {
-   console.log('Update Job Page', id)
-
    const [formData, setFormData] = useState({
       title: '',
       company_name: '',
@@ -21,14 +19,12 @@ const UpdateJobPage = ({ id,listKeyword ,handleCloseUpdate,handleAlert,handleRef
    useEffect(() => {
       getJobDetail(id)
          .then((response) => {
-            console.log(response)
             setFormData(response)
          })   
          .catch((error) => {
             console.log(error)
          })   
    }, [id])      
-   console.log("Form Data",formData.keyword)
 
    const handleChange = (e) => {
       setFormData({
@@ -42,7 +38,6 @@ const UpdateJobPage = ({ id,listKeyword ,handleCloseUpdate,handleAlert,handleRef
          ...formData,
          keyword: keyword.target.value,
       });
-      console.log(keyword.target.value)
    }
 
    const handleSubmit = async (e) => {
