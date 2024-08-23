@@ -7,19 +7,15 @@ import { useState,useEffect } from 'react';
 const SelectComponents = ({ selectList, label, onSelect, value }) => {
    const [listSelect, setListSelect] = useState([])
    const [labelSelect, setLabelSelect] = useState('')
-   const [selected, setSelected] = useState(value);
+   const [selected, setSelected] = useState('');
 
    useEffect(() => {
-         setListSelect(selectList)
+      setListSelect(selectList)
       setLabelSelect(label)
-   }, [selectList,label])
+      setSelected(value||'')
+   }, [selectList,label,value])
 
-   console.log(listSelect)
 
-   
-   useEffect(() => {
-      setSelected(selected)
-   }, [selected])
 
   const handleChange = (event) => {
      setSelected(event.target.value);
@@ -35,7 +31,7 @@ const SelectComponents = ({ selectList, label, onSelect, value }) => {
              <Select
                 labelId="demo-simple-select-helper-label"
                 id="demo-simple-select-helper"
-                value={selected || ''}
+                value={selected}
                 label={labelSelect}
               onChange={handleChange}
            >
