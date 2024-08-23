@@ -15,7 +15,7 @@ from .export_xlsx import export_jobs_to_xlsx
 
 @api_view(['GET'])
 def get_all_job(request):
-   filterset=JobFilter(request.query_params, queryset=Jobs.objects.all())
+   filterset=JobFilter(request.query_params, queryset=Jobs.objects.all().order_by('id'))
    jobs=filterset.qs
 
    paginator = PageNumberPagination()
