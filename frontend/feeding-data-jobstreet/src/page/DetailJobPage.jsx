@@ -38,81 +38,67 @@ const DetailJobPage = ({ id, handleCloseDetail,handleAlert }) => {
          <Typography variant="h6" align="center" gutterBottom>Detail Job</Typography>
          <TextField
             label="Title"
-            variant="outlined"
+            variant="filled"
             name="title"
             value={jobDetail.title}
             fullWidth
             margin="normal"
-            InputLabelProps={{
-               shrink: true,
-            }}
+            disabled
          />
          <TextField
             label="Company Name"
-            variant="outlined"
+            variant="filled"
             name="company_name"
             value={jobDetail.company_name}
             fullWidth
             margin="normal"
-            InputLabelProps={{
-               shrink: true,
-            }}
+            disabled
          />
          <TextField
             label="Work Type"
-            variant="outlined"
+            variant="filled"
             name="work_type"
             value={jobDetail.work_type}
             fullWidth
             margin="normal"
-            InputLabelProps={{
-               shrink: true,
-            }}
+            disabled
          />
          <TextField
             label="Location"
-            variant="outlined"
+            variant="filled"
             name="location"
             value={jobDetail.location}
             fullWidth
             margin="normal"
-            InputLabelProps={{
-               shrink: true,
-            }}
+            disabled
          />
          <TextField
             label="Salary"
-            variant="outlined"
+            variant="filled"
             name="salary"
             value={jobDetail.salary !== '' ? jobDetail.salary : '-'}
             fullWidth
             margin="normal"
-            InputLabelProps={{
-               shrink: true,
-            }}
+            disabled
          />
 
          <TextField
             label="Keyword"
-            variant="outlined"
+            variant="filled"
             name="keyword"
             value={jobDetail.keyword}
             fullWidth
             margin="normal"
-            InputLabelProps={{
-               shrink: true,
-            }}
+            disabled
          />
          <TextField
             label="Listing Date"
-            variant="outlined"
+            variant="filled"
             name="listing_date"
             value={jobDetail.listing_date}
             fullWidth
             margin="normal"
-            InputLabelProps={{
-               shrink: true,
-            }}
+            disabled
          />
 
 

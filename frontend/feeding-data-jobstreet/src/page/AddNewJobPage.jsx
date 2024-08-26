@@ -35,8 +35,8 @@ const AddNewJobPage = ({listKeyword,handleCloseAddNew,handleRefreshData,handleAl
       try {
         await addNewJob(formData);
         handleAlert('Job added successfully', 'success')
-        handleRefreshData()
         handleCloseAddNew()
+        handleRefreshData()
       } catch (error) {
         handleAlert('Failed to add job','error')
       }
