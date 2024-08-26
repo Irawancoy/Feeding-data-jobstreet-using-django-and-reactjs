@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Typography, Box, TextField } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-const DetailJobPage = ({ id, handleCloseDetail }) => {
+const DetailJobPage = ({ id, handleCloseDetail,handleAlert }) => {
    const [jobDetail, setJobDetail] = useState({
       title: "",
       company_name: "",
@@ -20,7 +20,7 @@ const DetailJobPage = ({ id, handleCloseDetail }) => {
             setJobDetail(response);
          })
          .catch((error) => {
-            console.log(error);
+            handleAlert("Failed to get job detail", "error");
          });
    }, [id]);
 

@@ -35,7 +35,6 @@ const ExportJobPage = ({ listKeyword, handleCloseExport,handleAlert,handleRefres
        handleCloseExport()
        handleRefreshData()
     } catch (error) {
-      console.error(error);
       handleAlert('Failed to export job','success')
     }
   };

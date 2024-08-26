@@ -22,7 +22,7 @@ const UpdateJobPage = ({ id,listKeyword ,handleCloseUpdate,handleAlert,handleRef
             setFormData(response)
          })   
          .catch((error) => {
-            console.log(error)
+            handleAlert('Failed to get job detail','error')
          })   
    }, [id])      
 

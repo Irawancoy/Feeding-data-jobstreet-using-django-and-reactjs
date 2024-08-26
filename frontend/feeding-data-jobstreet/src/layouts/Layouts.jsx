@@ -135,7 +135,7 @@ const Layouts = () => {
             setTotalCount(response.count);
          })
          .catch((error) => {
-            console.log(error);
+            handleAlert('Failed to fetch data', 'error')
          });
    }, [selectedKeyword, page, rowsPerPage,refreshData]);
 
@@ -268,6 +268,7 @@ const Layouts = () => {
                      <DetailJobPage
                         id={selectedId}
                         handleCloseDetail={handleCloseDetail}
+                        handleAlert={handleAlert}
                      />
                   </Box>
                </Modal>

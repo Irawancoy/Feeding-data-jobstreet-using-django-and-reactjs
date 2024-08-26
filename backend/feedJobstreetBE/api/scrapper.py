@@ -18,7 +18,7 @@ def fetch_page_data(page, keyword):
         if script:
             json_text = re.search(r'window\.SEEK_REDUX_DATA\s*=\s*(\{.*\});', script.string).group(1)
             return json.loads(json_text)
-    except (requests.exceptions.RequestException, AttributeError, json.JSONDecodeError):
+    except (RequestException, AttributeError, json.JSONDecodeError):
         return None
 
 def scrape_jobs(keyword):
@@ -28,18 +28,14 @@ def scrape_jobs(keyword):
     if data:
         total_data = int(data['results']['results']['summary']['displayTotalCount'].replace(",", ""))
         max_pages = math.ceil(total_data / data_per_page)
-        print(f"Total Data: {total_data}, Max Pages: {max_pages}")
     else:
-        print("Failed to fetch data.")
         return []
 
     # Looping untuk mengambil data dari semua halaman
     for page in range(1, max_pages + 1):
-        print(f"Fetching data from page {page}...")
         data = fetch_page_data(page, keyword)
         if data:
             jobs = data['results']['results']['jobs']
-            print(f"Jobs found on page {page}: {len(jobs)}")
             for job in jobs:
                 title = job.get('title', 'No Title')
                 company_name = job.get('advertiser', {}).get('description', 'No Company Name')
@@ -62,12 +58,12 @@ def scrape_jobs(keyword):
                 Jobs.objects.update_or_create(
                     title=title,
                     company_name=company_name,
+                    keyword=keyword,  
                     defaults={
                         'work_type': work_type,
                         'location': location,
                         'salary': salary,
-                        'listing_date': formatted_date,
-                        'keyword': keyword
+                        'listing_date': formatted_date
                     }
                 )
                 total_jobs.append({
@@ -78,6 +74,4 @@ def scrape_jobs(keyword):
                     'salary': salary,
                     'work_type': work_type,
                 })
-
-    print(f"Total Jobs collected: {len(total_jobs)}")
     return total_jobs
