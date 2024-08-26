@@ -2,16 +2,16 @@ import instance from './axiosConfig'
 
 const getALLJobs = import.meta.env.VITE_API_GET_ALL_JOBS 
 const addJob = import.meta.env.VITE_API_ADD_JOB
-const updateJob = import.meta.env.VITE_API_GET_BY_ID_UPDATE_DELETE_JOB
-const deleteJob = import.meta.env.VITE_API_GET_BY_ID_UPDATE_DELETE_JOB
-const getJobById = import.meta.env.VITE_API_GET_BY_ID_UPDATE_DELETE_JOB
+const updateJob = import.meta.env.VITE_API_UPDATE_JOB
+const deleteJob = import.meta.env.VITE_API_DELETE_JOB
+const getJobById = import.meta.env.VITE_API_GET_BY_ID_JOB
 const scrapeJob = import.meta.env.VITE_API_GET_SCRAPE_JOB
 const exportJob = import.meta.env.VITE_API_GET_EXPORT_JOB
 
 export const getAllJobs = (keyword, page,pageSize) => {
    
    return instance
-      .get(`${getALLJobs}/?keyword=${keyword}&page=${page}&page_size=${pageSize}`)
+      .get(`${getALLJobs}?keyword=${keyword}&page=${page}&page_size=${pageSize}`)
       .then((response) => {
          return response.data
       })
@@ -37,7 +37,7 @@ export const addNewJob = (data) => {
 
 export const scrapeJobs = (keyword) => {
    return instance
-      .get(`${scrapeJob}/?keyword=${keyword}`)
+      .get(`${scrapeJob}?keyword=${keyword}`)
       .then((response) => {
          return response.data
       })
@@ -48,7 +48,7 @@ export const scrapeJobs = (keyword) => {
 
 export const exportJobs = (keyword) => {
    return instance
-      .get(`${exportJob}/?keyword=${keyword}`, {
+      .get(`${exportJob}?keyword=${keyword}`, {
          responseType: 'blob' 
       })
       .then((response) => {
